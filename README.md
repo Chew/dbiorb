@@ -14,7 +14,7 @@ I mean, why not.
 Put this near the top of your ruby bot:
 
 ```ruby
-require 'dbiorb'
+require 'dbio'
 
 dbio = DBio.new
 ```

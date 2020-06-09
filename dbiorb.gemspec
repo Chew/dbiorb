@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'dbiorb'
-  s.version = '0.1.0'
+  s.version = '0.1.1'
   s.date = '2020-06-09'
   s.summary = 'Discord Bio API for Ruby'
   s.description = 'A Ruby library for the Discord Bio (https://discord.bio) API.'

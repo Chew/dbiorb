@@ -16,10 +16,19 @@ class DBio
 
     User.new(user['payload'])
   end
+
+  # Returns the top upvoted users.
+  # Their data is short, so it's not really worth storing a lot of data
+  # @see [SearchResult#user]
+  # @return [Array<SearchResult>] the response
+  def top_upvoted
+    JSON.parse(RestClient.get("https://api.discord.bio/v1/topUpvoted"))['payload'].map { |e| SearchResult.new(e) }
+  end
 end
 
 # Require files.
 require 'dbio/discord_connection'
 require 'dbio/discord_profile'
+require 'dbio/search_result'
 require 'dbio/user_connection'
 require 'dbio/user'

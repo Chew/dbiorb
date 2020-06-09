@@ -1,6 +1,6 @@
 # Find information about a Discord Profile.
 class DBio::DiscordProfile
-  # Initialize the connection
+  # Initialize the profile
   def initialize(data)
     @data = data
   end

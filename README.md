@@ -21,11 +21,11 @@ dbio = DBio.new
 
 Now, when you need to run a method, run dbio.method.
 
-Example for getting a user named "Chew"'s bio.
+Example for getting a user named "Chew"'s description.
 
 ```ruby
 bot.command(:profile) do |event, arg|
-  event.respond "#{arg}'s bio is #{dbio.user(arg).bio}"
+  event.respond "#{arg}'s description is #{dbio.user(arg).description}"
 end
 ```
 

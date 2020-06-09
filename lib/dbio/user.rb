@@ -26,6 +26,11 @@ class DBio::User
     @user['user_id'].to_i
   end
 
+  # @return [Integer] the amount of upvotes this user has.
+  def upvotes
+    @user['upvotes']
+  end
+
   # The flags for this user. Not entirely sure what they mean, but they're there.
   # @return [Integer] the flags for this user
   def flags

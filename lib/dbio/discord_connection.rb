@@ -20,4 +20,12 @@ class DBio::DiscordConnection
   def url
     @data['url']
   end
+
+  # The icon is used on the website, it's a Font Awesome icon code.
+  # Not really useful unless you're making a site with the gem, in which case you'd probably do:
+  # <a href="<%= @connection.url %>"><i class="<%= @connection.icon %>"> <%= @connection.name %></a>
+  # @return [String] the font awesome icon code for this connection
+  def icon
+    @data['icon']
+  end
 end

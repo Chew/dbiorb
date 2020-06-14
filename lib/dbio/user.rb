@@ -14,10 +14,16 @@ class DBio::User
   alias_method :to_s, :data
 
   # The slug of this user. Use: dsc.bio/slug
-  # @see [User#profile_url]
+  # @see User#profile_url
   # @return [String] the slug
   def slug
     @user['slug']
+  end
+
+  # The link to this user's profile
+  # @return [String] this user's profile
+  def profile_url
+    "https://dsc.bio/#{profile_url}"
   end
 
   # The id of the user.
@@ -31,7 +37,8 @@ class DBio::User
     @user['upvotes']
   end
 
-  # The flags for this user. Not entirely sure what they mean, but they're there.
+  # The oauth flags for this user. Not useful on their own.
+  # @see DBio::DiscordProfile#public_flags
   # @return [Integer] the flags for this user
   def flags
     @user['flags']

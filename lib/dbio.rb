@@ -24,6 +24,13 @@ class DBio
   def top_upvoted
     JSON.parse(RestClient.get("https://api.discord.bio/v1/topUpvoted"))['payload'].map { |e| SearchResult.new(e) }
   end
+
+  # Searches for a user
+  # This API is not publically documented and can break at any time. Be careful!
+  # @return [Array<SearchResult>] the response
+  def search(user)
+    JSON.parse(RestClient.get("https://api.discord.bio/v1/user/search/#{user}"))['payload'].map { |e| SearchResult.new(e) }
+  end
 end
 
 # Require files.

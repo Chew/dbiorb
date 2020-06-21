@@ -17,16 +17,16 @@ class DBio
     User.new(user['payload'])
   end
 
-  # Returns the top upvoted users.
+  # Returns the users by most likes.
   # Their data is short, so it's not really worth storing a lot of data
   # @see [SearchResult#user]
   # @return [Array<SearchResult>] the response
-  def top_upvoted
-    JSON.parse(RestClient.get("https://api.discord.bio/v1/topUpvoted"))['payload'].map { |e| SearchResult.new(e) }
+  def top_likes
+    JSON.parse(RestClient.get("https://api.discord.bio/v1/topLikes"))['payload'].map { |e| SearchResult.new(e) }
   end
 
   # Searches for a user
-  # This API is not publically documented and can break at any time. Be careful!
+  # This API is not publicly documented and can break at any time. Be careful!
   # @return [Array<SearchResult>] the response
   def search(user)
     JSON.parse(RestClient.get("https://api.discord.bio/v1/user/search/#{user}"))['payload'].map { |e| SearchResult.new(e) }

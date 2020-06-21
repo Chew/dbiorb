@@ -32,10 +32,15 @@ class DBio::User
     @user['user_id'].to_i
   end
 
-  # @return [Integer] the amount of upvotes this user has.
-  def upvotes
-    @user['upvotes']
+  # @return [Integer] the amount of likes this user has.
+  def likes
+    @user['likes']
   end
+
+  # This simply returns the likes, switch to likes.
+  # @deprecated
+  # @see [likes]
+  alias_method :upvotes, :likes
 
   # The oauth flags for this user. Not useful on their own.
   # @see DBio::DiscordProfile#public_flags

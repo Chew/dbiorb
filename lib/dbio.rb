@@ -12,7 +12,7 @@ class DBio
   # @raise [RestClient::NotFound] if the specified user does not exist
   # @return [User] the new user object
   def user(id)
-    user = JSON.parse(RestClient.get("https://api.discord.bio/v1/user/details/#{id}"))
+    user = JSON.parse(RestClient.get("https://api.discord.bio/user/details/#{id}"))
 
     User.new(user['payload'])
   end
@@ -22,14 +22,14 @@ class DBio
   # @see [SearchResult#user]
   # @return [Array<SearchResult>] the response
   def top_likes
-    JSON.parse(RestClient.get("https://api.discord.bio/v1/topLikes"))['payload'].map { |e| SearchResult.new(e) }
+    JSON.parse(RestClient.get("https://api.discord.bio/topLikes"))['payload'].map { |e| SearchResult.new(e) }
   end
 
   # Searches for a user
   # This API is not publicly documented and can break at any time. Be careful!
   # @return [Array<SearchResult>] the response
   def search(user)
-    JSON.parse(RestClient.get("https://api.discord.bio/v1/user/search/#{user}"))['payload'].map { |e| SearchResult.new(e) }
+    JSON.parse(RestClient.get("https://api.discord.bio/user/search/#{user}"))['payload'].map { |e| SearchResult.new(e) }
   end
 end
 

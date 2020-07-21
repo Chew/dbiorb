@@ -23,7 +23,7 @@ class DBio::User
   # The link to this user's profile
   # @return [String] this user's profile
   def profile_url
-    "https://dsc.bio/#{profile_url}"
+    "https://dsc.bio/#{slug}"
   end
 
   # The id of the user.
@@ -51,7 +51,7 @@ class DBio::User
 
   # @return [boolean] if this user is verified
   def verified?
-    @user['verified'] == 1
+    @user['verified']
   end
 
   # @return [Time] The time this user was created
@@ -116,10 +116,18 @@ class DBio::User
     @user['staff']
   end
 
+  # The premium type as found on Discord.
+  # ezpz way to see if they're Nitro.
+  # For Types, see https://discord.com/developers/docs/resources/user#user-object-premium-types
+  # @return [Integer] this user's premium type
+  def premium_type
+    @user['premium_type']
+  end
+
   # This is the user's Discord connections as they appear on their Discord profile
   # @return [Array<DiscordConnection>] the user's discord connections
   def discord_connections
-    @discord_connections.map{ |e| DBio::DiscordConnection.new(e) }
+    @discord_connections.map { |e| DBio::DiscordConnection.new(e) }
   end
 
   # The user's Discord.Bio connections. Not as specific.
